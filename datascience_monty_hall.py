@@ -85,15 +85,3 @@ def play(strategie, nb_tours):
     # Ceci est une liste en compréhension. Pour en savoir plus, consulter
     # le cours "Apprenez à programmer en Python" sur OpenClassrooms
     return [1 if play_game(strategie) else 0 for i in range(nb_tours)]
-
-def main():
-    print("En changeant de porte, le joueur a gagné {} sur 10000 parties."
-          .format(sum(play(Strategie.CHANGER, 10000))))
-    print("En gardant son choix initial, le joueur a gagné {} sur 10000 parties."
-          .format(sum(play(Strategie.GARDER, 10000))))
-    plt.plot(play(Strategie.GARDER, 10))
-    plt.show()
-
-
-if __name__ == "__main__":
-    main()

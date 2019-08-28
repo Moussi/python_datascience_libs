@@ -1,6 +1,6 @@
 
 
-from training1 import Shark
+from oop_model import Shark
 
 
 def main():
