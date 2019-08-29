@@ -8,11 +8,22 @@ import matplotlib.pyplot as plt
 scatter is like plot but don't link the points to each other
 '''
 def main():
-    print("En changeant de porte, le joueur a gagné {} sur 10000 parties."
-          .format(sum(play(Strategie.CHANGER, 10000))))
-    print("En gardant son choix initial, le joueur a gagné {} sur 10000 parties."
-          .format(sum(play(Strategie.GARDER, 10000))))
-    plt.scatter(range(10), play(Strategie.GARDER, 10))
+
+    gains_changer = []
+    gains_garder = []
+
+    samples = [1000, 10000, 20000, 50000, 80000, 100000]
+
+    for tours in samples:
+        print("En changeant de porte, le joueur a gagné {} sur 10000 parties."
+              .format(sum(play(Strategie.CHANGER, tours))))
+        print("En gardant son choix initial, le joueur a gagné {} sur 10000 parties."
+              .format(sum(play(Strategie.GARDER, tours))))
+        gains_garder.append(sum(play(Strategie.GARDER, tours)))
+        gains_changer.append(sum(play(Strategie.CHANGER, tours)))
+
+    plt.scatter(samples, gains_changer)
+    plt.scatter(samples, gains_garder)
     plt.show()
 
 
