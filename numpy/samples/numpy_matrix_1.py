@@ -26,7 +26,6 @@ def generate_distributed_random_variables_matrix():
     plt.hist(sommes, bins = 100)
     plt.show()
 
-
 def main():
     domaine = range(-100, 100)
     mu = 50
