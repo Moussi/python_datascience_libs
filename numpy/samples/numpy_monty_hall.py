@@ -52,63 +52,10 @@ def monty_hall(strategie, nb_tour):
     return total_gains
 
 
-def play(strategie, nb_tours):
-    '''Simule une partie du jeu Monty Hall.
-
-    Cette fonction simule le choix de la porte par le participant,
-    l'élimination d'une mauvaise porte par le présentateur, et le
-    choix final. Elle renvoie les résultats de plusieurs parties sous
-    forme d'un tableau.
-
-    Args:
-        strategie : La stratégie du joueur ("CHANGER" ou "GARDER")
-        nb_tours : le nombre de parties qui sont jouées
-
-    Returns:
-        array: pour chaque tour 1 si le joueur a gagné et 0 s'il a perdu
-    '''
-
-    gains = np.arange(0, nb_tours)
-    i = 0
-
-    while i < nb_tours:
-
-        portes = [0, 1, 2]
-
-        bonne_porte = np.random.randint(3, size=1)
-
-        # Choix du joueur
-        premier_choix = np.random.randint(3, size=1)
-
-        # Il nous reste deux portes
-        portes.remove(premier_choix)
-
-        # Le présentateur élimine une porte
-        porte_eliminee = np.random.randint(2, size=1)[0]
-        if premier_choix == bonne_porte:
-            portes.remove(portes[porte_eliminee])
-        else:
-            portes = [bonne_porte]
-
-        deuxieme_choix = 0
-        # Le deuxieme choix depend de la strategie
-        if strategie == Strategie.CHANGER:
-            deuxieme_choix = portes[0]
-        elif strategie == Strategie.GARDER:
-            deuxieme_choix = premier_choix
-        else:
-            raise ValueError("Stratégie non reconnue!")
-
-        gains[i] = 1 if deuxieme_choix == bonne_porte else 0
-        i = i + 1
-
-    return gains
-
-
 
 if __name__ == "__main__":
-    a = sum(play(Strategie.CHANGER, 100))
-    b = sum(play(Strategie.GARDER, 100))
+    a = monty_hall(Strategie.CHANGER, 100)
+    b = monty_hall(Strategie.GARDER, 100)
     print(a)
     print(b)
     plt.bar(["CHANGER", "GARDER"],[a,b])
