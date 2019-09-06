@@ -3,3 +3,4 @@ __pycache__
 *.pyc
 agents-100k.json
 .idea*
+venv/*

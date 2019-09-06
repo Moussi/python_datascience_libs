@@ -10,3 +10,8 @@
 
 * Tensorflow and PyTorch for deep learning
  * ...
+ 
+ ## Add Python VirtualEnv
+ 
+ ```virtualenv -p /usr/bin/python3.6 dist_folder```
+ ```source venv/bin/activate```
