@@ -13,5 +13,6 @@
  
  ## Add Python VirtualEnv
  
- ```virtualenv -p /usr/bin/python3.6 dist_folder```
+ ```virtualenv -p /usr/bin/python3.6 dist_folder```  
+   
  ```source venv/bin/activate```
